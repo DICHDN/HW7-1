@@ -2,9 +2,11 @@
 
 #include <iostream>
 #include <Windows.h>
-#define MODE
-
-
+#define MODE 0
+#if MODE !=1 && MODE !=0
+#error Неизвестный режим
+#endif
+#if MODE == 1
 void add()
 {
     int num1, num2;
@@ -16,6 +18,8 @@ void add()
     std::cout << std::endl;
     std::cout << "Результат сложения превого и второго чисел равен: " << num1 + num2 << std::endl;;
 }
+#endif 
+
 
 int main()
 {
@@ -28,9 +32,7 @@ int main()
     std::cout << "Работаю в боевом режиме!" << std::endl;
     add();
 #endif // 1
-#ifndef MODE
-#error "Неизвестный режим"
-#endif
+
 
 
 }
